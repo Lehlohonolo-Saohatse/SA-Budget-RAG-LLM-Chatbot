@@ -1,70 +1,268 @@
-# South African Budget RAG Chatbot
+# South African Budget RAG LLM Chatbot
 
-A Retrieval-Augmented Generation (RAG) chatbot that allows users to query and compare South African national budget documents (2023–2026) using LLMs and vector search.
+An AI-powered **Retrieval-Augmented Generation (RAG)** chatbot that analyzes and compares South African national budget documents (2023–2026).
+
+Built using modern LLM tooling, this project demonstrates **real-world NLP, semantic search, and multi-document reasoning** using LangChain’s latest architecture.
 
 ---
 
 ## 🚀 Features
 
-- Loads multiple budget PDFs (2023–2026)
-- Semantic search using embeddings (Sentence Transformers)
-- Vector database powered by ChromaDB
-- LLM responses via Groq (LLaMA 3)
-- Cross-year budget comparison capability
-- CLI chatbot interface
+* 🔍 **Semantic Search (RAG)** over budget PDFs
+* 📊 **Multi-Year Budget Comparison (2023–2026)**
+* 📚 **Source-Grounded Answers** (with document references)
+* ⚡ **Fast Vector Search** using ChromaDB
+* 🤖 **LLM-Powered Responses** (Groq / HuggingFace)
+* 🌐 **Interactive Web App UI** built with Streamlit
+* 🧠 Handles complex queries like:
+
+  * “Compare healthcare spending across years”
+  * “What are the priorities of the 2026 budget?”
+  * “Which document mentions social grants?”
 
 ---
 
-## 🏗️ Tech Stack
+## 🏗️ Architecture
 
-- LangChain (LCEL modern API)
-- ChromaDB (vector database)
-- HuggingFace Embeddings
-- Groq LLM (LLaMA 3)
-- PyPDF
-- Python Dotenv
-
----
-
-## 📁 Project Structure
-
-
-src/
-chain.py # Main RAG pipeline
-ingest.py # PDF loading & chunking
-llm.py # Groq LLM setup
-vectorstore.py # Embeddings + Chroma DB
-data/ # Budget PDFs (2023–2026)
-db/ # Vector database (auto-generated)
-
+```
+User Query
+     ↓
+Retriever (ChromaDB)
+     ↓
+Relevant Budget Chunks
+     ↓
+Prompt Template
+     ↓
+LLM (Groq / HF)
+     ↓
+Final Answer (with context)
+```
 
 ---
 
-## ⚙️ Setup
+## 📂 Project Structure
 
-### 1. Clone repository
+```
+South-African-Budget-NLP-RAG-Chatbot/
+│
+├── data/                  # Budget PDFs (2023–2026)
+├── screenshots/           # Demo screenshots
+│
+├── src/
+│   ├── app.py             # Streamlit UI
+│   ├── chain.py           # RAG pipeline (LCEL)
+│   ├── ingest.py          # Document loading & splitting
+│   ├── llm.py             # LLM configuration
+│   ├── vectorstore.py     # Embeddings + Chroma DB
+│
+├── requirements.txt
+├── .env
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repo
+
 ```bash
-git clone https://github.com/your-username/sa-budget-rag.git
-cd sa-budget-rag
-2. Create virtual environment
+git clone https://github.com/your-username/South-African-Budget-NLP-RAG-Chatbot.git
+cd South-African-Budget-NLP-RAG-Chatbot
+```
+
+### 2. Create virtual environment
+
+```bash
 python -m venv venv
+```
+
+### 3. Activate environment
+
+**Windows (PowerShell):**
+
+```bash
 venv\Scripts\activate
-3. Install dependencies
+```
+
+**Mac/Linux:**
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### 4. Install dependencies
+
+```bash
 pip install -r requirements.txt
-4. Add environment variables
+```
 
-Create .env file:
+---
 
+### 5. Set environment variables
+
+Create a `.env` file:
+
+```env
 GROQ_API_KEY=your_api_key_here
-5. Add PDFs
+```
 
-Place budget PDFs inside:
+---
 
-data/
-▶️ Run the chatbot
+## ▶️ Running the App
+
+### Run Streamlit UI
+
+```bash
+streamlit run src/app.py
+```
+
+---
+
+### Run CLI version
+
+```bash
 python -m src.chain
-💬 Example queries
-Compare education spending from 2023 to 2026
-What changed in VAT policy over the years?
-Which year had the highest infrastructure allocation?
-Summarize SA budget trends
+```
+
+---
+
+## 📸 Example Queries & Results
+
+Below are real examples of chatbot outputs using South African budget documents.
+
+---
+
+### 🧠 Budget Comparison
+
+**Prompt:**
+
+> Compare healthcare spending between 2023 and 2026.
+
+![Comparison](screenshots/comparison.png)
+
+---
+
+### 📊 Education Allocation
+
+**Prompt:**
+
+> How much was allocated to education in 2025?
+
+![Education](screenshots/education.png)
+
+---
+
+### 📈 Spending Trends
+
+**Prompt:**
+
+> What are the trends in infrastructure spending?
+
+![Trends](screenshots/trends.png)
+
+---
+
+### 🔍 Source Validation
+
+**Prompt:**
+
+> Which document mentions social grants increases?
+
+![Source](screenshots/source.png)
+
+---
+
+### 💬 Budget Summary
+
+**Prompt:**
+
+> Summarize the key priorities of the 2026 budget.
+
+![Summary](screenshots/summary.png)
+
+---
+
+## 🧠 Key Capabilities
+
+* Retrieval-Augmented Generation (RAG)
+* Multi-document reasoning
+* Context-aware LLM responses
+* Vector embeddings with HuggingFace
+* Modular LangChain (LCEL) pipeline
+* Real-world financial document analysis
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* LangChain (Latest LCEL API)
+* ChromaDB (Vector Database)
+* Sentence Transformers (Embeddings)
+* Groq / HuggingFace (LLMs)
+* Streamlit (Frontend UI)
+
+---
+
+## ⚠️ Known Issues & Fixes
+
+### ❌ `ModuleNotFoundError: src`
+
+Run using:
+
+```bash
+python -m src.chain
+```
+
+---
+
+### ❌ `No module named langchain.text_splitter`
+
+Fix:
+
+```bash
+pip install langchain-text-splitters
+```
+
+---
+
+### ❌ `No module named torchvision`
+
+Fix:
+
+```bash
+pip install torchvision
+```
+
+---
+
+## 🔮 Future Improvements
+
+* 📊 Add visual charts for budget comparisons
+* 📁 Upload custom documents in UI
+* 🧠 Memory-enabled conversations
+* 🌍 Deploy to cloud (Streamlit Cloud / AWS)
+* 🔎 Hybrid search (keyword + semantic)
+
+---
+
+## 👨‍💻 Author
+
+**Lehlo**
+Final Year BSc Computer Science & Electronics Student
+Passionate about AI, NLP, and Full-Stack Development
+
+---
+
+## ⭐ If you found this useful
+
+Give the repo a ⭐ and connect with me!
+
+---
+
+## 📜 License
+
+MIT License
