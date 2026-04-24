@@ -249,20 +249,6 @@ pip install torchvision
 
 ---
 
-## 👨‍💻 Author
-
-**Lehlo**
-Final Year BSc Computer Science & Electronics Student
-Passionate about AI, NLP, and Full-Stack Development
-
----
-
-## ⭐ If you found this useful
-
-Give the repo a ⭐ and connect with me!
-
----
-
 ## 📜 License
 
 MIT License
