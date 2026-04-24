@@ -6,5 +6,7 @@ langchain-huggingface
 langchain-groq
 chromadb
 sentence-transformers
+torchvision
 pypdf
 python-dotenv
+streamlit
