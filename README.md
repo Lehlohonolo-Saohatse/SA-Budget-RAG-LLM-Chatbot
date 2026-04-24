@@ -67,7 +67,7 @@ South-African-Budget-NLP-RAG-Chatbot/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/South-African-Budget-NLP-RAG-Chatbot.git
+git clone https://github.com/Lehlohonolo-Saohatse/SA-Budget-RAG-LLM-Chatbot.git
 cd South-African-Budget-NLP-RAG-Chatbot
 ```
 
