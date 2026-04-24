@@ -4,6 +4,8 @@ An AI-powered **Retrieval-Augmented Generation (RAG)** chatbot that analyzes and
 
 Built using modern LLM tooling, this project demonstrates **real-world NLP, semantic search, and multi-document reasoning** using LangChain’s latest architecture.
 
+> It is deployed on Streamlit, you can try it out on: https://sa-budget-rag-llm-chatbot.streamlit.app/
+
 ---
 
 ![onDevelopment](screenshots/ask.png)
