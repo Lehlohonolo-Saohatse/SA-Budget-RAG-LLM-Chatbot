@@ -1,8 +1,13 @@
 # South African Budget RAG LLM Chatbot
 
-An AI-powered **Retrieval-Augmented Generation (RAG)** chatbot that analyzes and compares South African national budget documents (2023–2026).
+An AI-powered **Retrieval-Augmented Generation (RAG)** chatbot that analyzes and compares South African national budget documents (2023-2026).
 
 Built using modern LLM tooling, this project demonstrates **real-world NLP, semantic search, and multi-document reasoning** using LangChain’s latest architecture.
+
+---
+
+![onDevelopment](screenshots/ask.png)
+![Chatbot](screenshots/chatbot.png)
 
 ---
 
@@ -38,7 +43,7 @@ LLM (Groq / HF)
 Final Answer (with context)
 ```
 
----
+
 
 ## 📂 Project Structure
 
