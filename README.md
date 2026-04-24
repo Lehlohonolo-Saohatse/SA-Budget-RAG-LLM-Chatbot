@@ -11,6 +11,8 @@ Built using modern LLM tooling, this project demonstrates **real-world NLP, sema
 ![onDevelopment](screenshots/ask.png)
 ![Chatbot](screenshots/chatbot.png)
 
+> Prompt examples at the bottom with screenshots.
+
 ---
 
 ## 🚀 Features
